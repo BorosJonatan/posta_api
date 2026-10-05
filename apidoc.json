@@ -1,0 +1,7 @@
+{
+    "name": "Laravel Posta REST API",
+    "version": "0.1.0",
+    "description": "Posták és megyék lekérésére van fejlesztve!",
+    "title": "Laravel Posta REST API",
+    "url" : "http://127.0.0.1/api"
+}
