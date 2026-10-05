@@ -4,12 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\City;
-
-
-
-
-
-
+use App\Models\County;
 
 
 
@@ -46,9 +41,16 @@ class CityController extends Controller
      *     }
      */
 
-    public function index()
+    public function index(Request $request)
     {
-        $cities = City::with('county')->get();
+        $query = City::with('county');
+
+        if ($request->has('county_id')) {
+            $query->where('county_id', $request->input('county_id'));
+        }
+
+        $cities = $query->get();
+
         return response()->json([
             'cities' => $cities,
         ]);
